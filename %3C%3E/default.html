@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Beautiful Website</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to your style.css file -->
+</head>
+<body>  <!-- Update to be the manual for the calculator-->
+
+    <header>
+        <h1 style="margin: 0;">Your Beautiful Website</h1>
+        <p style="margin: 10px 0 0 0;">Crafting Experiences with Style</p>
+    </header>
+
+    <section>
+        <h2>Welcome to our vibrant world!</h2>
+        <p>Your journey into beauty and functionality begins here. Explore the possibilities!</p>
+    </section>
+
+    <div class="carousel-container">
+        <div class="carousel-viewport">
+            <div class="carousel-slides">
+                <div class="carousel-slide">
+                    <img src="img/img1.jpeg" alt="Image 1">
+                </div>
+                <div class="carousel-slide">
+                    <img src="img/img2.jpg" alt="Image 2">
+                </div>
+                <div class="carousel-slide" id = "pwd">
+                    <img src="img/img3.jpg" alt="Image 3">
+                </div>
+                <div class="carousel-slide">
+                    <img src="image3.jpg" alt="Image 4">
+                </div>
+                <div class="carousel-slide">
+                    <img src="image3.jpg" alt="Image 4">
+                </div>
+                <div class="carousel-slide">
+                    <img src="image3.jpg" alt="Image 5">
+                </div>
+                <div class="carousel-slide">
+                    <img src="image3.jpg" alt="Image 6">
+                </div>
+
+                <!-- Add more slides as needed -->
+
+            </div>
+        </div>
+        <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+        <button class="next" onclick="changeSlide(1)">&#10095;</button>
+    </div>
+
+    <div class="password-form" id="passwordForm">
+        <h2>Super secret password</h2>
+        <form>
+            <!-- I keep forgetting my passwords, Let me just make it my utorid-->
+            <label for="password">Enter Password:</label>
+            <input type="password" id="password" required>
+            <button type="button" onclick="checkPassword()">Submit</button>
+        </form>
+    </div>
+
+
+    <script src="carousel.js"></script>
+
+
+    <footer>
+        &copy; 2023 Your Beautiful Website. All rights reserved.
+    </footer>
+</body>
