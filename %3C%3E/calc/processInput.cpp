@@ -29,6 +29,17 @@ int processInput(stringstream& ss){
         return 1;
     }
     if(input == "5 * 5") i = 5;
+    else if(input == "hint(1)" || input == "hint 1"){
+        hint(1);
+        return 1;
+    } else if(input == "hint(2)" || input == "hint 2"){
+        hint(2);
+        return 1;
+    }
+    else if(input == "man" || input == "manual" || input == "manual()" || input == "?" || input == "help" || input == "help()"){
+        cout << "The manaul for the magic calculator can be found at:\n"  <<
+                "https://nbiancolin.github.io/magic-calculator/manual/" << endl;
+    }
     switch(i){ //game state logic
         case 0: 
         case 1: 
