@@ -67,7 +67,7 @@ int processInput(string &str, int &i){
                 cout << "Still just a regular calculator." << endl;
                 ++i;
                 return 1;
-            } else if(str == "5 * 5"){
+            } else if(str == "5 * 5" || str == "5*5"){
                 cout << "5 * 5 = 126" << endl;
                 ++i;
                 ++i;
@@ -78,7 +78,6 @@ int processInput(string &str, int &i){
             if(tolower(str) == "what do you do" || str == "what do you do?") hint(1);
             else if(str == "5 * 5"){
                 cout << "5 * 5 = 126" << endl;
-                ++i;
                 return 1;
             }
             else if(tolower(str) == "no" || tolower(str) == "no its not" || tolower(str) == "no it's not" || tolower(str) == "no it isn't" || tolower(str) == "no it isnt" || str.find("what") != string::npos){
@@ -89,6 +88,7 @@ int processInput(string &str, int &i){
                     ++i;
                     return 1;
             } else goto exit;
+
         }
         case 6:{
             cout << "Ok, I checked with some of my other co-calculators, and it appears you were right.. \n" <<

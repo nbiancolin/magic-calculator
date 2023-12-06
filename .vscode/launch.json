@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/u/a/biancol6/2023/magic-calculator/%3C%3E/calc",
-      "program": "/u/a/biancol6/2023/magic-calculator/%3C%3E/calc/build/Debug/outDebug",
+      "cwd": "/u/a/biancol6/2023/magic-calculator/calc",
+      "program": "/u/a/biancol6/2023/magic-calculator/calc/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

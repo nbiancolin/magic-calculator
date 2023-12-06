@@ -14,7 +14,7 @@ HEADERS := main.h calculator.h processInput.h
 OBJS := $(SRCS:.cpp=.o)
 
 # Target executable
-TARGET := magicCalculator
+TARGET := magic-calculator
 
 # Rule to build the executable
 $(TARGET): $(OBJS) processInput.o
