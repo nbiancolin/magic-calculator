@@ -45,9 +45,9 @@ int processInput(stringstream& ss){
         }
         case 3: {
             if(tolower(input) == "what do you do" || input == "what do you do?"){
-            cout << "Ok I wasn't serious about asking again. \n
-                    I am just a regular calcuator. There is nothing special about me. \n
-                    Try running \" 5 * 5 \" or something, idk." << endl;
+            cout << "Ok... how many times do you want me to say the same thing! \n" <<
+                    "I am just a regular calcuator. There is nothing special about me. \n" <<
+                    "Try running \" 5 * 5 \" or something, idk." << endl;
                 ++i;
                 return 1;
             } else goto exit;
@@ -71,7 +71,7 @@ int processInput(stringstream& ss){
                 ++i;
                 return 1;
             }
-            else if(tolower(input) == "no" || tolower(input) == "no its not" || tolower(input) || "no it's not" || tolower(input) == "no it isn't" || tolower(input) == "no it isnt"){
+            else if(tolower(input) == "no" || tolower(input) == "no its not" || tolower(input) == "no it's not" || tolower(input) == "no it isn't" || tolower(input) == "no it isnt"){
                 cout << "What do you mean, no? \n" <<
                     "I am the magic calculator, I am always right \n" <<
                     "Plus, this one in particular I always get right. 5 times 5 is my good friend's girlfriend's birthday: December 6th! \n" <<
@@ -84,13 +84,14 @@ int processInput(stringstream& ss){
             cout << "Ok, I checked with some of my other co-calculators, and it appears you were right.. \n" <<
             "5 times 5 is in fact 25. Turns out it was actually some guy named Jesus's birthday. Who knew?" << endl;
             ++i;
+            return 1;
         }
         case 7:{
             if(input == "5 * 5"){
                 cout << "5 * 5 = ... wait a minute" << endl;
-                cout << "You just can't let it go, can you..\n
-                Unbelieveable. Can\'t let me forget the one time I (the *magic* calculator, mind you), managed to make a simple mistake.\n
-                How would you feel if someone did that to you?" << endl;
+                cout << "You just can't let it go, can you..\n" <<
+                "Unbelieveable. Can\'t let me forget the one time I (the *magic* calculator, mind you), managed to make a simple mistake.\n" <<
+                "How would you feel if someone did that to you?" << endl;
                 ++i;
                 return 1;
             }
@@ -113,17 +114,18 @@ int processInput(stringstream& ss){
                 return 1;
             } else {
                 cout << "Alright, lets go \n" <<
-                    "Question 1: compute lim_(x,y) -> () where f(x,y) = <> or state that it does not exist" << endl;
-                    ++i;
-                    return 1;
+                    "Question 1: \n Compute lim_(x,y) -> (0,0) f(x,y) where f(x,y) = (x^2 * sin^2 y) / (x^2 * 2y^2) or state that it does not exist (DNE)" << endl;
+                ++i;
+                return 1;
             }
         }
         case 10: {
-            if(input == <>){
+            if(input == "0"){
                 cout << "Seems like you got lucky" << endl;
                 ++score[1];
             } else {
                 cout << "Ha! I knew I'd be able to trip you up!" << endl;
+                cout << "So you are aware, the correct answer is 0" << endl;
                 ++score[0];
             }
             cout << "Looks like the score is " << score[0] << " to " << score[1] << endl;
@@ -133,20 +135,86 @@ int processInput(stringstream& ss){
         }
         case 11:
             if(input.find("no")){
-                cout << "Ah come on, lets keep going. Something tells me you might need the practice" << endl;
+                cout << "Ah come on, lets keep going. Something tells me you might need the practice..." << endl;
             } else {
                 cout << "Alright! Lets keep going" << endl;
-                cout << "<div thrm with gradient = 0" << endl;
+                cout << "Question 2: \n " <<
+                "Consider the following sequence with a and b being positive numbers: \n"<<
+                "\t a - b/2 + a/3 - b/4 + a/5 - b/6 + ... \n" <<
+                "For what values of a and b does this sequence absolutely converge?" << endl;
+                ++i;
+                return 1;
             }
+        case 12:{
+            if(input == "0"){
+                cout << "Man, you're good at this. I'm starting to think you might be a calculator yourself!" << endl;
+                ++score[1];
+            }
+            else{
+                cout << "Looks like this will be an easy victory for me!" << endl;
+                cout <<"So you are aware, the correct answer is 0" << endl;
+                ++score[0];
+            }
+            cout << "Looks like the score is " << score[0] << " to " << score[1] << endl;
+            cout << "Can't give up now!" << endl;
+            cout << "Question 3: \n" <<
+                    "Compute the following double integral: (double integral)_r y^2 / x^3 dA \n" <<
+                    "where r is the region bounded by the curves y = x^2, y = (1/2)*x, y = x, and y = 2x." << endl;
+            hint(2);
+            ++i;
+            return 1;
+        }
+        case 13:{
+            if(input == "15/4" || input == "15 / 4" || input == "3.75"){
+                cout << "Oh no, what have I gotten myself into! I might actually lose this" << endl;
+                ++score[1];
+            }
+            else{
+                cout << "Looks like this will be an easy victory for me!" << endl;
+                cout <<"So you are aware, the correct answer is 15/4" << endl;
+                ++score[0];
+            }
+            cout << "Looks like the score is " << score[0] << " to " << score[1] << endl;
+            cout << "Lets keep going!" << endl;
+            cout << "Question 4: \n" <<
+                    "Let f(z) = 2z*e^-(5/(z-2)^2) \n" <<
+                    "What is the residue of f(z) at z_o = 2? "<< endl;
+            ++i;
+            return 1;
+        }
+        case 14:{
+            cout << "Author's note: I don't know how to do this one, but you're lowkey cracked at 290 so I'll assume you got it right" << endl;
+            ++score[1];
+            cout << "Looks like the score is " << score[0] << " to " << score[1] << endl;
+            if(score[0] == score[1]){
+                ++i;
+                return 1;
+            } else if(score[0] > score[1]){
+                cout << "I knew I'd win! Turns out the magic calculator is right after all." <<
+                "I'll go back to being a regular calculator again. "<< endl;
+                i = 7;
+                return 1;
+            } else {
+                cout << "I guess it is time to admit defeat. You are clearly the superior mathematician.\n" <<
+                "I hope you had fun with our little game. I know I had fun making it. \n" <<
+                "Ik you're busy with exams and whatnot, so this will be the end for now. \n" <<
+                "Just so you know, the magic calculator never forgets... In the immortal words of the terminator, \"I'll be back\"" << endl;
+                goto start;
+        }
         
+    }
     }
  
 exit:{
     ss << input; //somehow return stringstream to its original input;
     return 0;
     }
-
-   
+start:{
+    i = 0;
+    cout << "Welcome to the magic calculator!" << endl;
+    cout << "Please input your selection: " << endl;
+    return 0;
+}
 
 }
 
@@ -157,5 +225,7 @@ void hint(int i){
             cout << "(try running \"5 * 5\"!)" << endl;
             cout << "Still just a regular calculator." << endl;
         }
+        case 2:
+            cout << "Remember, for hints, be sure to check out the magic calculator manual!" << endl;
     }
 }
