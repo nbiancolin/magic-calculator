@@ -9,9 +9,9 @@ using namespace std;
 int main(){  //For more information on the calculator, check out the manual!\
    
     cout << "Welcome to the magic calculator!" << endl;
+    cout << "Please input your selection: " << endl;
     while(true){
         stringstream lineStream;
-        cout << "Please input your selection: " << endl;
         cout << "> ";
         string input;
         getline(cin, input);
