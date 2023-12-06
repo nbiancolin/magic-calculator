@@ -1,6 +1,7 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <cctype>
 using namespace std;
 
 int i = 0;
@@ -9,6 +10,16 @@ int score[2] = {0,0}; //score[0] is my scoe
                         //score[1] is hers
 
 #include "processInput.h"
+
+string tolower(string &input){  //overloaded function for me
+    string res;
+    for(auto elem : input){
+        res.append(1, tolower(elem));
+    }
+    return res;
+}
+
+
 
 int processInput(stringstream& ss){
     string input;
@@ -47,7 +58,7 @@ int processInput(stringstream& ss){
                 ++i;
                 return 1;
             } else if(input == "5 * 5"){
-                cout << "5 * 5 = 126";
+                cout << "5 * 5 = 126" << endl;
                 ++i;
                 ++i;
                 return 1;
@@ -61,17 +72,17 @@ int processInput(stringstream& ss){
                 return 1;
             }
             else if(tolower(input) == "no" || tolower(input) == "no its not" || tolower(input) || "no it's not" || tolower(input) == "no it isn't" || tolower(input) == "no it isnt"){
-                cout << "What do you mean, no? \n
-                    I am the magic calculator, I am always right \n
-                    Plus, this one in particular I always get right. 5 times 5 is my good friend's girlfriend's birthday: December 6th! \n
-                    What's next, you're gonna tell me that 5 * 5 equals 25? How ridiculous" << endl;
+                cout << "What do you mean, no? \n" <<
+                    "I am the magic calculator, I am always right \n" <<
+                    "Plus, this one in particular I always get right. 5 times 5 is my good friend's girlfriend's birthday: December 6th! \n" <<
+                    "What's next, you're gonna tell me that 5 * 5 equals 25? How ridiculous" << endl;
                     ++i;
                     return 1;
             } else goto exit;
         }
         case 6:{
-            cout << "Ok, I checked with some of my other co-calculators, and it appears you were right.. \n
-            5 times 5 is in fact 25. Who would have thought?" << endl;
+            cout << "Ok, I checked with some of my other co-calculators, and it appears you were right.. \n" <<
+            "5 times 5 is in fact 25. Turns out it was actually some guy named Jesus's birthday. Who knew?" << endl;
             ++i;
         }
         case 7:{
