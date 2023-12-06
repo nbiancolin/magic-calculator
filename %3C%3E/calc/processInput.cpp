@@ -11,9 +11,11 @@ int score[2] = {0,0}; //score[0] is my scoe
 
 #include "processInput.h"
 
-string tolower(string &input){  //overloaded function for me
+//void hint(int i);
+
+string tolower(string &str){  //overloaded function for me
     string res;
-    for(auto elem : input){
+    for(auto elem : str){
         res.append(1, tolower(elem));
     }
     return res;
@@ -21,41 +23,38 @@ string tolower(string &input){  //overloaded function for me
 
 
 
-int processInput(stringstream& ss){
-    string input;
-    ss >> input;
-    if(ss.fail()){
-        cout << "error: invalid input" << endl;
-        return 1;
-    }
-    if(input == "5 * 5") i = 5;
-    else if(input == "hint(1)" || input == "hint 1"){
+int processInput(string &str, int &i){
+
+    if(str == "5 * 5") i = 5;
+    else if(str == "hint(1)" || str == "hint 1"){
         hint(1);
         return 1;
-    } else if(input == "hint(2)" || input == "hint 2"){
+    } else if(str == "hint(2)" || str == "hint 2"){
         hint(2);
         return 1;
     }
-    else if(input == "man" || input == "manual" || input == "manual()" || input == "?" || input == "help" || input == "help()"){
+    else if(str.find("hint") != string::npos || str == "man" || str == "manual" || str == "manual()" || str == "?" || str == "help" || str == "help()"){
         cout << "The manaul for the magic calculator can be found at:\n"  <<
                 "https://nbiancolin.github.io/magic-calculator/manual/" << endl;
+                return 1;
     }
+
     switch(i){ //game state logic
         case 0: 
         case 1: 
         case 2: {
-            if(tolower(input) == "what do you do" || input == "what do you do?"){
+            if(tolower(str) == "what do you do" || str == "what do you do?"){
                 cout << "Thank you for asking! \n" << 
                 "I am the magic calculator, and I compute all kinds of algebraic expressions. \n" <<
                 "I am never wrong \n" <<
-                "Don't believe me? Ask again!"  << endl; //do this for all of them
+                "Don't believe me? Ask again!"  << endl; 
                 ++i;   
                 return 1; 
             }
             else goto exit;   
         }
         case 3: {
-            if(tolower(input) == "what do you do" || input == "what do you do?"){
+            if(tolower(str) == "what do you do" || str == "what do you do?"){
             cout << "Ok... how many times do you want me to say the same thing! \n" <<
                     "I am just a regular calcuator. There is nothing special about me. \n" <<
                     "Try running \" 5 * 5 \" or something, idk." << endl;
@@ -64,11 +63,11 @@ int processInput(stringstream& ss){
             } else goto exit;
         }
         case 4:{ 
-            if(tolower(input) == "what do you do" || input == "what do you do?"){
+            if(tolower(str) == "what do you do" || str == "what do you do?"){
                 cout << "Still just a regular calculator." << endl;
                 ++i;
                 return 1;
-            } else if(input == "5 * 5"){
+            } else if(str == "5 * 5"){
                 cout << "5 * 5 = 126" << endl;
                 ++i;
                 ++i;
@@ -76,13 +75,13 @@ int processInput(stringstream& ss){
             } else goto exit;
         }
         case 5:{
-            if(tolower(input) == "what do you do" || input == "what do you do?") hint(1);
-            else if(input == "5 * 5"){
-                cout << "5 * 5 = 126";
+            if(tolower(str) == "what do you do" || str == "what do you do?") hint(1);
+            else if(str == "5 * 5"){
+                cout << "5 * 5 = 126" << endl;
                 ++i;
                 return 1;
             }
-            else if(tolower(input) == "no" || tolower(input) == "no its not" || tolower(input) == "no it's not" || tolower(input) == "no it isn't" || tolower(input) == "no it isnt"){
+            else if(tolower(str) == "no" || tolower(str) == "no its not" || tolower(str) == "no it's not" || tolower(str) == "no it isn't" || tolower(str) == "no it isnt" || str.find("what") != string::npos){
                 cout << "What do you mean, no? \n" <<
                     "I am the magic calculator, I am always right \n" <<
                     "Plus, this one in particular I always get right. 5 times 5 is my good friend's girlfriend's birthday: December 6th! \n" <<
@@ -98,7 +97,7 @@ int processInput(stringstream& ss){
             return 1;
         }
         case 7:{
-            if(input == "5 * 5"){
+            if(str == "5 * 5"){
                 cout << "5 * 5 = ... wait a minute" << endl;
                 cout << "You just can't let it go, can you..\n" <<
                 "Unbelieveable. Can\'t let me forget the one time I (the *magic* calculator, mind you), managed to make a simple mistake.\n" <<
@@ -108,7 +107,7 @@ int processInput(stringstream& ss){
             }
         }
         case 8:{
-            if(!input.find("not") || input.find("good") || input.find("great")){
+            if(!str.find("not") || str.find("good") != string::npos || str.find("great") != string::npos){
                 cout << "You're crazy. \n " << endl;
             } else{
                 cout <<"Yeah, thats right. " << endl;
@@ -120,7 +119,7 @@ int processInput(stringstream& ss){
             return 1;
         }
         case 9:{
-            if(input.find("no") || input.find("crazy")){
+            if(str.find("no") != string::npos|| str.find("crazy")!= string::npos){
                 cout << "What's the matter? You scared?" << endl;
                 return 1;
             } else {
@@ -131,7 +130,7 @@ int processInput(stringstream& ss){
             }
         }
         case 10: {
-            if(input == "0"){
+            if(str == "0"){
                 cout << "Seems like you got lucky" << endl;
                 ++score[1];
             } else {
@@ -145,7 +144,7 @@ int processInput(stringstream& ss){
             return 1;
         }
         case 11:
-            if(input.find("no")){
+            if(str.find("no")!= string::npos){
                 cout << "Ah come on, lets keep going. Something tells me you might need the practice..." << endl;
             } else {
                 cout << "Alright! Lets keep going" << endl;
@@ -157,7 +156,7 @@ int processInput(stringstream& ss){
                 return 1;
             }
         case 12:{
-            if(input == "0"){
+            if(str == "0"){
                 cout << "Man, you're good at this. I'm starting to think you might be a calculator yourself!" << endl;
                 ++score[1];
             }
@@ -176,7 +175,7 @@ int processInput(stringstream& ss){
             return 1;
         }
         case 13:{
-            if(input == "15/4" || input == "15 / 4" || input == "3.75"){
+            if(str == "15/4" || str == "15 / 4" || str == "3.75"){
                 cout << "Oh no, what have I gotten myself into! I might actually lose this" << endl;
                 ++score[1];
             }
@@ -217,13 +216,13 @@ int processInput(stringstream& ss){
     }
  
 exit:{
-    ss << input; //somehow return stringstream to its original input;
+    //ss << str; //somehow return stringstream to its original str;
     return 0;
     }
 start:{
     i = 0;
     cout << "Welcome to the magic calculator!" << endl;
-    cout << "Please input your selection: " << endl;
+    cout << "Please str your selection: " << endl;
     return 0;
 }
 

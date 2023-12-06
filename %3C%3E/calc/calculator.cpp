@@ -1,4 +1,5 @@
 #include <iostream>
+#include <sstream>
 using namespace std;
 
 #include "calculator.h" //change so it works with words as wekk

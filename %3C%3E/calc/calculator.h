@@ -3,4 +3,4 @@
 
 void calc(stringstream &ss);
 
-#endif calculator_h
+#endif //calculator_h
