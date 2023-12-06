@@ -104,7 +104,7 @@ int processInput(string &str, int &i){
                 "How would you feel if someone did that to you?" << endl;
                 ++i;
                 return 1;
-            }
+            } else goto exit;
         }
         case 8:{
             if(!str.find("not") || str.find("good") != string::npos || str.find("great") != string::npos){
