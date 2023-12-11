@@ -1,5 +1,6 @@
 #include <iostream>
 #include <sstream>
+#include <cmath>
 using namespace std;
 
 #include "calculator.h" //change so it works with words as wekk
@@ -33,6 +34,12 @@ void calc(stringstream &ss){
     case '/':
       cout << num1 << " / " << num2 << " = " << num1 / num2 << endl;
       break;
+
+    //case '%':
+    //  cout << num1 << " % " << num2 << " = " << (num1 % num2) << endl;
+    //  break;
+    case '^':
+      cout << num1 << " ^" << num2 << " = " << pow(num1, num2) << endl;
 
     default:
       // If the operator is other than +, -, * or /, error message is shown
